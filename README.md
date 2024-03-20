@@ -1,5 +1,3 @@
-# WNVCA-2024
-
 # WNV California Forecasting Challenge 2024
 
 This is the data repository for the 2024 CDPH West Nile virus Forecasting Challenge. This is an open (*by request*) forecasting challenge to predict monthly West Nile virus (WNV) total disease cases in select California counties in 2024 in the months of May through October. This is the first iteration of a California county-specific Forecasting Challenge.
