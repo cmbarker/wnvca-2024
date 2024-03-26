@@ -1,0 +1,12 @@
+{
+    "schema_version": "https://raw.githubusercontent.com/Infectious-Disease-Modeling-Hubs/schemas/main/v2.0.1/admin-schema.json",
+    "name": "WNV California Forecasting Challenge 2024",
+    "maintainer": "California Department of Public Health",
+    "contact": {
+        "name": "Héctor M. Sánchez C.",
+        "email": "hector.sanchez-castellanos@cdph.ca.gov"
+    },
+    "repository_url": "https://github.com/Chipdelmal/WNVCA-2024",
+    "file_format": ["csv"],
+    "timezone": "US/Pacific"
+}

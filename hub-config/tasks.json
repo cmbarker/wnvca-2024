@@ -1,0 +1,66 @@
+{
+    "schema_version": "https://raw.githubusercontent.com/Infectious-Disease-Modeling-Hubs/schemas/main/v2.0.1/tasks-schema.json",
+    "rounds": [{
+        "round_id_from_variable": true,
+        "round_id": "origin_date",
+        "model_tasks": [{
+        "task_ids": {
+            "origin_date": {
+                "required": null,
+                "optional": [
+                    "2024-04-30", "2024-05-31", "2024-06-30", 
+                    "2024-07-31", "2024-08-31", "2024-09-30"
+                ]
+            },
+            "target_date": {
+                "required": null,
+                "optional": [
+                    "2024-05-31", "2024-06-30", "2024-07-31", 
+                    "2024-08-31", "2024-09-30", "2024-10-31"
+                ]
+            },
+            "target": {
+                "required": ["WNV cases"],
+                "optional": null
+            },
+            "location": {
+                "required": [
+                    "Fresno", "Kern", "Los Angeles", "Merced", 
+                    "Orange", "Placer", "Riverside", "Sacramento", 
+                    "San Bernardino", "San Joaquin", "Solano", 
+                    "Stanislaus", "Tulare"
+                ],
+                "optional": null
+            }
+        },
+        "output_type": {
+            "cdf": {
+              "output_type_id": {
+                  "required": [0, 1, 2, 3, 4, 5, 6, 8, 10, 15, 200],
+                  "optional": null
+                },
+                "value": {
+                    "type": "double",
+                    "minimum": 0,
+                    "maximum": 1
+                }
+            }
+        },
+        "target_metadata": [{
+            "target_id": "WNV cases",
+            "target_name": "Monthly reported WNV cases aggregated at a county level.",
+            "target_units": "count",
+            "target_keys": {"target": ["WNV cases"]},
+            "target_type": "discrete",
+            "description": "Monthly reported WNV cases (including mild, fever, and neuro) aggregated at a county level for selected counties in California (per million county inhabitants).",
+            "time_unit": "month",
+            "is_step_ahead": true
+        }]
+    }],
+    "submissions_due": {
+        "relative_to": "origin_date",
+        "start": -15,
+        "end": 8
+    }
+  }
+]}
