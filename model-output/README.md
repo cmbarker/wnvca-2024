@@ -149,7 +149,7 @@ Upper, inclusive, bound on the standardized bin interval as defined in:
 * `8`: (6, 8]
 * `10`: (8, 10]
 * `15`: (10, 15]
-* `200`: (15, 200]
+* `200`: (15, infinity]
 
 
 ### `type`
@@ -201,32 +201,14 @@ Placer,   2024-05-31,   2024-05-31,   200,            1,        cdf,          WN
 
 ## Forecast validation 
 
-To ensure proper data formatting, pull requests for new data in `model-output/` will be automatically run. Optionally, you may also run these validations locally.
+To ensure proper data formatting, pull requests for new data in `model-output/` will be automatically run. Optionally, you may also run these validations [locally](#Local-Validation).
 
 ### Pull request forecast validation
 
 When a pull request is submitted, the data are validated through [Github Actions](https://docs.github.com/en/actions) which runs the tests present in [the hubValidations
 package](https://github.com/Infectious-Disease-Modeling-Hubs/hubValidations). The intent for these tests are to validate the requirements above. Please [let us know](https://github.com/Chipdelmal/WNVCA-2024) if you are facing issues while running the tests.
 
-### Local forecast validation
-
-Optionally, you may validate a forecast file locally before submitting it to the hub in a pull request. 
-
-
-## Monthly ensemble build 
-
-Every month, we will generate a  *WNV California Forecasting Challenge* ensemble using valid forecast submissions in the current week by the deadline. Some or all participant forecasts may be combined into an ensemble forecast to be published in real-time along with the participant forecasts. In addition, some or all forecasts may be displayed alongside the output of a baseline model for comparison.
-
-
-## Policy on late or updated submissions 
-
-To ensure that forecasting is done in real-time, all forecasts are required to be submitted to this repository by the listed deadlines. Late forecasts may be accepted on a case-by-case basis. 
-
-## Evaluation criteria
-
-When reported data for 2024 are available, an analysis will be conducted using multiple scoring metrics, including the logarithmic score and the multibin logarithmic score, to assess and compare forecasts across all counties at each time point. A joint manuscript will be prepared to disseminate findings on this comparison and the general performance of submitted forecasts. Participants may publish their own forecasts and results at any time. 
-
-## Local Validation
+### Local Validation
 
 Teams are highly encouraged to validate their data locally before doing their pull request. To do this, install the `hubValidations` package:
 
@@ -245,3 +227,18 @@ hubValidations::validate_submission(
 ```
 
 where the `file_path` should be replaced with your submission file.
+
+
+## Monthly ensemble build 
+
+Every month, we will generate a  *WNV California Forecasting Challenge* ensemble using valid forecast submissions in the current week by the deadline. Some or all participant forecasts may be combined into an ensemble forecast to be published in real-time along with the participant forecasts. In addition, some or all forecasts may be displayed alongside the output of a baseline model for comparison.
+
+
+## Policy on late or updated submissions 
+
+To ensure that forecasting is done in real-time, all forecasts are required to be submitted to this repository by the listed deadlines. Late forecasts may be accepted on a case-by-case basis. 
+
+## Evaluation criteria
+
+When reported data for 2024 are available, an analysis will be conducted using multiple scoring metrics, including the logarithmic score and the multibin logarithmic score, to assess and compare forecasts across all counties at each time point. A joint manuscript will be prepared to disseminate findings on this comparison and the general performance of submitted forecasts. Participants may publish their own forecasts and results at any time. 
+
