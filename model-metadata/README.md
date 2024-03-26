@@ -1,9 +1,3 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
-
 # Model metadata
 
 
@@ -15,7 +9,7 @@ These instructions provide detail about the [data format](#Data-format) as well 
 
 ## Required variables
 
-This section describes each of the variables (keys) in the yaml document. Please order the variables in this order.
+This section describes each of the variables (keys) in the yaml document. Please order the variables as follows.
 
 ### team_name
 The name of your team that is less than 50 characters.
@@ -102,43 +96,40 @@ One or more citations to manuscripts or preprints with additional model details.
 
 Any information about funding source(s) for the team or members of the team that would be natural to include on any resulting  publications. For example, "National Institutes of General Medical Sciences (R01GM123456). The content is solely the responsibility of the authors and does not necessarily represent the official views of NIGMS."
 
-# Data validation
+# YML validation
 
-We strongly suggest to validate the output data before submitting it, as the pull request might take some time to perform the required tests (which might delay the submission process). To run the validation follow these steps:
+We strongly recommend to validate the `model-metadata` before submitting it, as the pull request might take some time to perform the required tests (which might delay the submission process). To run the validation follow these steps:
 
 1. Create a fork of the `WNVCA-2024` repository and then clone the fork to your computer.
-2. Create a draft of the model metadata file for your model and place it in the `model-metadata` folder of this clone.
+2. Create a draft of the model metadata file for your model and place it in the `model-metadata` folder.
 3. Install the `hubValidations` package for R by running the following command from within an R session:
 
 ``` r
 remotes::install_github("Infectious-Disease-Modeling-Hubs/hubValidations")
 ```
-4. Validate your draft metadata file by running the following command in an R session:
+4. Validate your draft metadata file by running the following command in an R session (with the working directory being in the root of the repository):
+
 ``` r
 hubValidations::validate_model_metadata(
-    hub_path="<path to your clone of the hub repository>",
-    file_path="<name of your metadata file>"
+  hub_path=".", 
+  file_path="CDPH-AZO.yml"
 )
 ```
 
 For example, if your working directory is the root of the hub repository, you can use a command similar to the following:
-``` r
-hubValidations::validate_model_metadata(
-  hub_path=".", 
-  file_path="UMass-trends_ensemble.yml"
-)
-```
+
 
 If all is well, you should see output similar to the following:
+
 ```
 ✔ model-metadata-schema.json: File exists at path hub-config/model-metadata-schema.json.
-✔ UMass-trends_ensemble.yml: File exists at path model-metadata/UMass-trends_ensemble.yml.
-✔ UMass-trends_ensemble.yml: Metadata file extension is "yml" or "yaml".
-✔ UMass-trends_ensemble.yml: Metadata file directory name matches "model-metadata".
-✔ UMass-trends_ensemble.yml: Metadata file contents are consistent with schema specifications.
-✔ UMass-trends_ensemble.yml: Metadata file name matches the `model_id` specified within the metadata file.
+✔ CDPH-AZO.yml: File exists at path model-metadata/CDPH-AZO.yml.
+✔ CDPH-AZO.yml: Metadata file extension is "yml" or "yaml".
+✔ CDPH-AZO.yml: Metadata file directory name matches "model-metadata".
+✔ CDPH-AZO.yml: Metadata file contents are consistent with schema specifications.
+✔ CDPH-AZO.yml: Metadata file name matches the `model_id` specified within the metadata file.
 ```
 
 # Examples/Templates
 
-Please see our CDPH-AZO.yml and CDPH-EQV.yml models examples for a template to follow for your models.
+Please have a look at our [CDPH-AZO.yml](./CDPH-AZO.yml) and [CDPH-EQV.yml](./CDPH-EQV.yml) specification files as examples on how to setup your own!

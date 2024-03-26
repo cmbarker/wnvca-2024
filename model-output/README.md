@@ -221,12 +221,37 @@ then set your working directory to the base repository path, and run:
 ```R
 require(hubValidations)
 hubValidations::validate_submission(
-  file_path='CDPH-AZO/2024-05-31-CDPH-AZO.csv',
-  hub_path='.'
+  hub_path='.',
+  file_path='CDPH-AZO/2024-05-31-CDPH-AZO.csv'
 )
 ```
 
-where the `file_path` should be replaced with your submission file.
+where the `file_path` should be replaced with your submission file. If the validation ran correctly, you should see something like:
+
+```
+✔ WNVCA-2024: All hub config files are valid.
+✔ 2024-05-31-CDPH-AZO.csv: File exists at path model-output/CDPH-AZO/2024-05-31-CDPH-AZO.csv.
+✔ 2024-05-31-CDPH-AZO.csv: File name "2024-05-31-CDPH-AZO.csv" is valid.
+✔ 2024-05-31-CDPH-AZO.csv: File directory name matches `model_id` metadata in file name.
+✔ 2024-05-31-CDPH-AZO.csv: `round_id` is valid.
+✔ 2024-05-31-CDPH-AZO.csv: File is accepted hub format.
+✔ 2024-05-31-CDPH-AZO.csv: Metadata file exists at path model-metadata/CDPH-AZO.yml.
+✔ 2024-05-31-CDPH-AZO.csv: File could be read successfully.
+✔ 2024-05-31-CDPH-AZO.csv: `round_id_col` name is valid.
+✔ 2024-05-31-CDPH-AZO.csv: `round_id` column "origin_date" contains a single, unique round ID value.
+✔ 2024-05-31-CDPH-AZO.csv: All `round_id_col` "origin_date" values match submission `round_id` from file name.
+✔ 2024-05-31-CDPH-AZO.csv: Column names are consistent with expected round task IDs and std column names.
+✔ 2024-05-31-CDPH-AZO.csv: Column data types match hub schema.
+✔ 2024-05-31-CDPH-AZO.csv: `tbl` contains valid values/value combinations.
+✔ 2024-05-31-CDPH-AZO.csv: All combinations of task ID column/`output_type`/`output_type_id` values are unique.
+✔ 2024-05-31-CDPH-AZO.csv: Required task ID/output type/output type ID combinations all present.
+✔ 2024-05-31-CDPH-AZO.csv: Values in column `value` all valid with respect to modeling task config.
+✔ 2024-05-31-CDPH-AZO.csv: Values in `value` column are non-decreasing as output_type_ids increase for all unique task ID value/output type combinations of
+  quantile or cdf output types.
+ℹ 2024-05-31-CDPH-AZO.csv: No pmf output types to check for sum of 1. Check skipped.
+! 2024-05-31-CDPH-AZO.csv: Submission time must be within accepted submission window for round.  Current time 2024-03-26 09:09:58.40993 is outside window
+  2024-05-16 PDT--2024-06-08 23:59:59 PDT.
+  ```
 
 
 ## Monthly ensemble build 

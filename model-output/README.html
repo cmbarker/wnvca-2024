@@ -370,8 +370,7 @@ model output guidelines in the hubverse’s documentation</a>.</p>
 <p>All forecasts should be submitted directly to the <a href="../model-output">model-output</a> folder. Data in this directory
 should be added to the repository through a pull request so that
 automatic <a href="../.github/workflows/model-output-pull.yml">validation checks</a>
-are run (although teams are highly encouraged to do <a href="#Local-Validation">local validations</a> before doing the data
-submission).</p>
+are run (although teams are highly encouraged to do <a href="#Local-Validation">local validations</a> before submitting).</p>
 <p>These instructions provide detail about the <a href="#Data-formatting">data format</a> as well as <a href="#Forecast-validation">validation</a> that you can do prior to this
 pull request. In addition, we describe <a href="https://github.com/Infectious-Disease-Modeling-Hubs/hubTemplate/blob/master/model-metadata/README.md">metadata</a>
 that each model should provide in the model-metadata folder.</p>
@@ -554,7 +553,7 @@ in:</p>
 <li><code>8</code>: (6, 8]</li>
 <li><code>10</code>: (8, 10]</li>
 <li><code>15</code>: (10, 15]</li>
-<li><code>200</code>: (15, 200]</li>
+<li><code>200</code>: (15, infinity]</li>
 </ul>
 </div>
 <div id="type" class="section level3">
@@ -610,7 +609,7 @@ Placer,   2024-05-31,   2024-05-31,   200,            1,        cdf,          WN
 <h2>Forecast validation</h2>
 <p>To ensure proper data formatting, pull requests for new data in
 <code>model-output/</code> will be automatically run. Optionally, you
-may also run these validations locally.</p>
+may also run these validations <a href="#Local-Validation">locally</a>.</p>
 <div id="pull-request-forecast-validation" class="section level3">
 <h3>Pull request forecast validation</h3>
 <p>When a pull request is submitted, the data are validated through <a href="https://docs.github.com/en/actions">Github Actions</a> which runs
@@ -619,10 +618,44 @@ hubValidations package</a>. The intent for these tests are to validate
 the requirements above. Please <a href="https://github.com/Chipdelmal/WNVCA-2024">let us know</a> if you
 are facing issues while running the tests.</p>
 </div>
-<div id="local-forecast-validation" class="section level3">
-<h3>Local forecast validation</h3>
-<p>Optionally, you may validate a forecast file locally before
-submitting it to the hub in a pull request.</p>
+<div id="local-validation" class="section level3">
+<h3>Local Validation</h3>
+<p>Teams are highly encouraged to validate their data locally before
+doing their pull request. To do this, install the
+<code>hubValidations</code> package:</p>
+<pre class="r"><code>remotes::install_github(&quot;Infectious-Disease-Modeling-Hubs/hubValidations&quot;)</code></pre>
+<p>then set your working directory to the base repository path, and
+run:</p>
+<pre class="r"><code>require(hubValidations)
+hubValidations::validate_submission(
+  file_path=&#39;CDPH-AZO/2024-05-31-CDPH-AZO.csv&#39;,
+  hub_path=&#39;.&#39;
+)</code></pre>
+<p>where the <code>file_path</code> should be replaced with your
+submission file. If the validation ran correctly, you should see
+something like:</p>
+<pre><code>✔ WNVCA-2024: All hub config files are valid.
+✔ 2024-05-31-CDPH-AZO.csv: File exists at path model-output/CDPH-AZO/2024-05-31-CDPH-AZO.csv.
+✔ 2024-05-31-CDPH-AZO.csv: File name &quot;2024-05-31-CDPH-AZO.csv&quot; is valid.
+✔ 2024-05-31-CDPH-AZO.csv: File directory name matches `model_id` metadata in file name.
+✔ 2024-05-31-CDPH-AZO.csv: `round_id` is valid.
+✔ 2024-05-31-CDPH-AZO.csv: File is accepted hub format.
+✔ 2024-05-31-CDPH-AZO.csv: Metadata file exists at path model-metadata/CDPH-AZO.yml.
+✔ 2024-05-31-CDPH-AZO.csv: File could be read successfully.
+✔ 2024-05-31-CDPH-AZO.csv: `round_id_col` name is valid.
+✔ 2024-05-31-CDPH-AZO.csv: `round_id` column &quot;origin_date&quot; contains a single, unique round ID value.
+✔ 2024-05-31-CDPH-AZO.csv: All `round_id_col` &quot;origin_date&quot; values match submission `round_id` from file name.
+✔ 2024-05-31-CDPH-AZO.csv: Column names are consistent with expected round task IDs and std column names.
+✔ 2024-05-31-CDPH-AZO.csv: Column data types match hub schema.
+✔ 2024-05-31-CDPH-AZO.csv: `tbl` contains valid values/value combinations.
+✔ 2024-05-31-CDPH-AZO.csv: All combinations of task ID column/`output_type`/`output_type_id` values are unique.
+✔ 2024-05-31-CDPH-AZO.csv: Required task ID/output type/output type ID combinations all present.
+✔ 2024-05-31-CDPH-AZO.csv: Values in column `value` all valid with respect to modeling task config.
+✔ 2024-05-31-CDPH-AZO.csv: Values in `value` column are non-decreasing as output_type_ids increase for all unique task ID value/output type combinations of
+  quantile or cdf output types.
+ℹ 2024-05-31-CDPH-AZO.csv: No pmf output types to check for sum of 1. Check skipped.
+! 2024-05-31-CDPH-AZO.csv: Submission time must be within accepted submission window for round.  Current time 2024-03-26 09:09:58.40993 is outside window
+  2024-05-16 PDT--2024-06-08 23:59:59 PDT.</code></pre>
 </div>
 </div>
 <div id="monthly-ensemble-build" class="section level2">
@@ -649,22 +682,6 @@ forecasts across all counties at each time point. A joint manuscript
 will be prepared to disseminate findings on this comparison and the
 general performance of submitted forecasts. Participants may publish
 their own forecasts and results at any time.</p>
-</div>
-<div id="local-validation" class="section level2">
-<h2>Local Validation</h2>
-<p>Teams are highly encouraged to validate their data locally before
-doing their pull request. To do this, install the
-<code>hubValidations</code> package:</p>
-<pre class="r"><code>remotes::install_github(&quot;Infectious-Disease-Modeling-Hubs/hubValidations&quot;)</code></pre>
-<p>then set your working directory to the base repository path, and
-run:</p>
-<pre class="r"><code>require(hubValidations)
-hubValidations::validate_submission(
-  file_path=&#39;CDPH-AZO/2024-05-31-CDPH-AZO.csv&#39;,
-  hub_path=&#39;.&#39;
-)</code></pre>
-<p>where the <code>file_path</code> should be replaced with your
-submission file.</p>
 </div>
 </div>
 

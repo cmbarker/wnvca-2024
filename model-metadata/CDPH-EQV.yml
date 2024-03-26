@@ -1,0 +1,27 @@
+team_name: "California Department of Public Health"
+team_abbr: "CDPH"
+model_name: "Equiprobable cases bins baseline model."
+model_abbr: "EQV"
+model_version: "1.0"
+model_contributors: [
+  {
+    "name": "Hector M. Sanchez C.",
+    "affiliation": "California Department of Public Health",
+    "email": "hector.sanchez-castellanos@cdph.ca.gov"
+  },
+  {
+    "name": "Tomas M. Leon",
+    "affiliation": "California Department of Public Health",
+    "email": "tomas.leon@cdph.ca.gov"
+  }
+]
+website_url: "https://github.com/cdphmodeling/wnvca-2024"
+license: "CC-BY-4.0"
+citation: ""
+team_funding: ""
+designated_model: false
+methods: "Assign the same probability to each bin."
+data_inputs: ""
+methods_long: "Baseline model that assigns equal probabilities to all the cases bins."
+ensemble_of_models: false
+ensemble_of_hub_models: false

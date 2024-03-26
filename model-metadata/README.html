@@ -496,40 +496,42 @@ and does not necessarily represent the official views of NIGMS.”</p>
 </div>
 <div id="data-validation" class="section level1">
 <h1>Data validation</h1>
-<p>We strongly suggest to validate the output data before submitting it,
-as the pull request might take some time to perform the required tests
-(which might delay the submission process). To run the validation follow
-these steps:</p>
+<p>We strongly suggest to validate the model-metadata before submitting
+it, as the pull request might take some time to perform the required
+tests (which might delay the submission process). To run the validation
+follow these steps:</p>
 <ol style="list-style-type: decimal">
 <li>Create a fork of the <code>WNVCA-2024</code> repository and then
 clone the fork to your computer.</li>
 <li>Create a draft of the model metadata file for your model and place
-it in the <code>model-metadata</code> folder of this clone.</li>
+it in the <code>model-metadata</code> folder.</li>
 <li>Install the <code>hubValidations</code> package for R by running the
 following command from within an R session:</li>
 </ol>
 <pre class="r"><code>remotes::install_github(&quot;Infectious-Disease-Modeling-Hubs/hubValidations&quot;)</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Validate your draft metadata file by running the following command
-in an R session:</li>
+in an R session (with the working directory being in the root of the
+repository):</li>
 </ol>
 <pre class="r"><code>hubValidations::validate_model_metadata(
-    hub_path=&quot;&lt;path to your clone of the hub repository&gt;&quot;,
-    file_path=&quot;&lt;name of your metadata file&gt;&quot;
+  hub_path=&quot;.&quot;, 
+  # file_path=&quot;CDPH-AZO.yml&quot;
 )</code></pre>
 <p>For example, if your working directory is the root of the hub
 repository, you can use a command similar to the following:</p>
-<pre class="r"><code>hubValidations::validate_model_metadata(
-  hub_path=&quot;.&quot;, 
-  file_path=&quot;UMass-trends_ensemble.yml&quot;
-)</code></pre>
 <p>If all is well, you should see output similar to the following:</p>
 <pre><code>✔ model-metadata-schema.json: File exists at path hub-config/model-metadata-schema.json.
-✔ UMass-trends_ensemble.yml: File exists at path model-metadata/UMass-trends_ensemble.yml.
-✔ UMass-trends_ensemble.yml: Metadata file extension is &quot;yml&quot; or &quot;yaml&quot;.
-✔ UMass-trends_ensemble.yml: Metadata file directory name matches &quot;model-metadata&quot;.
-✔ UMass-trends_ensemble.yml: Metadata file contents are consistent with schema specifications.
-✔ UMass-trends_ensemble.yml: Metadata file name matches the `model_id` specified within the metadata file.</code></pre>
+✔ CDPH-AZO.yml: File exists at path model-metadata/CDPH-AZO.yml.
+✔ CDPH-AZO.yml: Metadata file extension is &quot;yml&quot; or &quot;yaml&quot;.
+✔ CDPH-AZO.yml: Metadata file directory name matches &quot;model-metadata&quot;.
+✔ CDPH-AZO.yml: Metadata file contents are consistent with schema specifications.
+✔ CDPH-AZO.yml: Metadata file name matches the `model_id` specified within the metadata file.</code></pre>
+</div>
+<div id="examplestemplates" class="section level1">
+<h1>Examples/Templates</h1>
+<p>Please see our <a href="./CDPH-AZO.yml">CDPH-AZO.yml</a> and <a href="./CDPH-EQV.yml">CDPH-EQV.yml</a> models examples for a template to
+follow for your models.</p>
 </div>
 
 
