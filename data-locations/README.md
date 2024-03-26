@@ -1,6 +1,6 @@
 ### Locations
 
-This folder contains a comma-separated file `locations.csv` that contains location-specific data for all California counties included in the forecasting challenge. California Department of Finance (DOF) population estimates were retrieved from [dof.ca.gov](https://dof.ca.gov/forecasting/demographics/estimates-e1/).
+This folder contains a comma-separated file [locations.csv](./locations.csv) with contains location-specific data for all California counties included in the forecasting challenge. California Department of Finance (DOF) population estimates were retrieved from [dof.ca.gov](https://dof.ca.gov/forecasting/demographics/estimates-e1/).
 
 Columns:
 
