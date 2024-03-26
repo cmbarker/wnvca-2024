@@ -16,8 +16,8 @@ These instructions provide detail about the [data format](#Data-formatting) as w
 -   [Data formatting](#Data-formatting)
 -   [Forecast file format](#Forecast-file-format)
 -   [Forecast data validation](#Forecast-validation)
--   [Monthly ensemble build](#Weekly-ensemble-build)
 -   [Policy on late submissions](#policy-on-late-or-updated-submissions)
+-   [Evaluation criteria](#evaluation-criteria)
 
 ## What is a forecast 
 

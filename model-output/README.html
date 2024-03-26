@@ -381,9 +381,9 @@ that each model should provide in the model-metadata folder.</p>
 <li><a href="#Data-formatting">Data formatting</a></li>
 <li><a href="#Forecast-file-format">Forecast file format</a></li>
 <li><a href="#Forecast-validation">Forecast data validation</a></li>
-<li><a href="#Weekly-ensemble-build">Monthly ensemble build</a></li>
 <li><a href="#policy-on-late-or-updated-submissions">Policy on late
 submissions</a></li>
+<li><a href="#evaluation-criteria">Evaluation criteria</a></li>
 </ul>
 <div id="what-is-a-forecast" class="section level2">
 <h2>What is a forecast</h2>
@@ -628,8 +628,8 @@ doing their pull request. To do this, install the
 run:</p>
 <pre class="r"><code>require(hubValidations)
 hubValidations::validate_submission(
-  file_path=&#39;CDPH-AZO/2024-05-31-CDPH-AZO.csv&#39;,
-  hub_path=&#39;.&#39;
+  hub_path=&#39;.&#39;,
+  file_path=&#39;CDPH-AZO/2024-05-31-CDPH-AZO.csv&#39;
 )</code></pre>
 <p>where the <code>file_path</code> should be replaced with your
 submission file. If the validation ran correctly, you should see
