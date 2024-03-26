@@ -59,7 +59,7 @@ Within each team subdirectory a set of forecasts should be submitted in CSV form
   * *round2-id*.csv 
   * ... 
 
-where the round id corresponds to the target date of the forecast and the id to the *team-model* identifier. More information on these folders structures' is found in [this document](https://hubdocs.readthedocs.io/en/stable/format/model-output.html). And examples for one of our baseline models can be found in [this folder](./model-output/CDPH-AZO/).
+where the round id corresponds to the origin date (*due date*) of the forecast and the id to the *team-model* identifier. More information on these folders structures' is found in [this document](https://hubdocs.readthedocs.io/en/stable/format/model-output.html). And examples for one of our baseline models can be found in [this folder](./model-output/CDPH-AZO/).
 
 
 ### Metadata
