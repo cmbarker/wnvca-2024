@@ -5,7 +5,7 @@ This folder contains a set of subdirectories, one for each model, that contains 
 
 # Data submission instructions
 
-All forecasts should be submitted directly to the [model-output](./) folder. Data in this directory should be added to the repository through a pull request so that automatic [data validation checks](../.github/workflows) are run.
+All forecasts should be submitted directly to the [model-output](../model-output) folder. Data in this directory should be added to the repository through a pull request so that automatic [validation checks](../.github/workflows/model-output-pull.yml) are run (although teams are highly encouraged to do [local validations](#Local-Validation) before submitting).
 
 These instructions provide detail about the [data format](#Data-formatting) as well as [validation](#Forecast-validation) that you can do prior to this pull request. In addition, we describe [metadata](https://github.com/Infectious-Disease-Modeling-Hubs/hubTemplate/blob/master/model-metadata/README.md) that each model should provide in the model-metadata folder.
 
@@ -225,3 +225,23 @@ To ensure that forecasting is done in real-time, all forecasts are required to b
 ## Evaluation criteria
 
 When reported data for 2024 are available, an analysis will be conducted using multiple scoring metrics, including the logarithmic score and the multibin logarithmic score, to assess and compare forecasts across all counties at each time point. A joint manuscript will be prepared to disseminate findings on this comparison and the general performance of submitted forecasts. Participants may publish their own forecasts and results at any time. 
+
+## Local Validation
+
+Teams are highly encouraged to validate their data locally before doing their pull request. To do this, install the `hubValidations` package:
+
+```R
+remotes::install_github("Infectious-Disease-Modeling-Hubs/hubValidations")
+```
+
+then set your working directory to the base repository path, and run:
+
+```R
+require(hubValidations)
+hubValidations::validate_submission(
+  file_path='CDPH-AZO/2024-05-31-CDPH-AZO.csv',
+  hub_path='.'
+)
+```
+
+where the `file_path` should be replaced with your submission file.

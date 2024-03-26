@@ -367,8 +367,11 @@ model output guidelines in the hubverse’s documentation</a>.</p>
 </div>
 <div id="data-submission-instructions" class="section level1">
 <h1>Data submission instructions</h1>
-<p>All forecasts should be submitted directly to the <a href="./">model-output/</a> folder. Data in this directory should be
-added to the repository through a pull request so that automatic <a href="../.github/workflows">data validation checks</a> are run.</p>
+<p>All forecasts should be submitted directly to the <a href="../model-output">model-output</a> folder. Data in this directory
+should be added to the repository through a pull request so that
+automatic <a href="../.github/workflows/model-output-pull.yml">validation checks</a>
+are run (although teams are highly encouraged to do <a href="#Local-Validation">local validations</a> before doing the data
+submission).</p>
 <p>These instructions provide detail about the <a href="#Data-formatting">data format</a> as well as <a href="#Forecast-validation">validation</a> that you can do prior to this
 pull request. In addition, we describe <a href="https://github.com/Infectious-Disease-Modeling-Hubs/hubTemplate/blob/master/model-metadata/README.md">metadata</a>
 that each model should provide in the model-metadata folder.</p>
@@ -402,7 +405,7 @@ data.</p>
 <div id="target-data" class="section level2">
 <h2>Target Data</h2>
 <p>County-level forecasts for total WNV diseases cases in each remaining
-calendar month of 2024 through October should be produced and submitted
+calendar month of 2024 through December should be produced and submitted
 by their respective monthly due dates, beginning on April 30, 2024.
 Please note that these monthly county-level forecasts differ from
 previous national WNV forecasting challenge targets. This page includes
@@ -412,7 +415,8 @@ structure</a>.</p>
 <p>All forecasts should be submitted directly to the model-output folder
 in this repository (more information on the submission folders is
 available here). Forecast data should be added to the repository through
-a pull request so that automatic data validation checks are run.</p>
+a pull request so that automatic <a href="../.github/workflows/model-output-pull.yml">data validation
+checks</a> are run.</p>
 <p>These instructions provide detail about the data format as well as
 validation that you can do prior to this pull request. In addition, we
 describe the <a href="#Metadata">metadata</a> that each model should
@@ -645,6 +649,22 @@ forecasts across all counties at each time point. A joint manuscript
 will be prepared to disseminate findings on this comparison and the
 general performance of submitted forecasts. Participants may publish
 their own forecasts and results at any time.</p>
+</div>
+<div id="local-validation" class="section level2">
+<h2>Local Validation</h2>
+<p>Teams are highly encouraged to validate their data locally before
+doing their pull request. To do this, install the
+<code>hubValidations</code> package:</p>
+<pre class="r"><code>remotes::install_github(&quot;Infectious-Disease-Modeling-Hubs/hubValidations&quot;)</code></pre>
+<p>then set your working directory to the base repository path, and
+run:</p>
+<pre class="r"><code>require(hubValidations)
+hubValidations::validate_submission(
+  file_path=&#39;CDPH-AZO/2024-05-31-CDPH-AZO.csv&#39;,
+  hub_path=&#39;.&#39;
+)</code></pre>
+<p>where the <code>file_path</code> should be replaced with your
+submission file.</p>
 </div>
 </div>
 
