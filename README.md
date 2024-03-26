@@ -9,7 +9,7 @@ If sufficient forecasts are available, forecast summary reports will be released
 Our challenge focuses on predicting monthly counts of reported WNV cases in the following California counties: Fresno, Kern, Los Angeles, Merced, Orange, Placer, Riverside, Sacramento, San Bernardino, San Joaquin, Solano, Stanislaus, Tulare. The submission format is described in our [model-ouput](./model-output/README.md) section.
 
 
-**Dates:** The Challenge Period will begin *April 2024* and will run until *October 2024*. Participants are currently asked to submit forecasts by: *May 31*, *June 30*, *July 31*, *August 31*, *September 30*, and  *October 31* (herein referred to as the Forecast Due Dates). All submissions should include forecasts for all remaining months of 2024 (through October).
+**Dates:** The Challenge Period will begin *April 2024* and will run until *October 2024*. Participants are currently asked to submit forecasts by: *April 30th*, *May 31*, *June 30*, *July 31*, *August 31*, *September 30*, and  *October 31* (herein referred to as the Forecast Due Dates). All submissions should include forecasts for all remaining months of 2024 (through December).
 
 **Prediction Targets:** Participating teams are asked to provide county-level predictions for targets WNV cases per million inhabitants. Teams will submit their [bin-based probability estimates](./model-output/README.md#bin_id) for the month ending on the reference date. All forecasts are provided at the county-month level through the end of the year and predict total reported cases of West Nile virus disease. If you have questions about this target, please reach out to the organizers at modeling@cdph.ca.gov.
 

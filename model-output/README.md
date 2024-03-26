@@ -1,11 +1,11 @@
 # Model outputs folder
 
 
-This folder contains a set of subdirectories, one for each model, that contains submitted model output files for that model. The structure of these directories and their contents follows [the model output guidelines in our documentation](https://hubdocs.readthedocs.io/en/latest/user-guide/model-output.html). Documentation for hub submissions specifically is provided below. 
+This folder contains a set of subdirectories, one for each model, that contains submitted model output files for that model. The structure of these directories and their contents follows [the model output guidelines in the hubverse's documentation](https://hubdocs.readthedocs.io/en/latest/user-guide/model-output.html). 
 
 # Data submission instructions
 
-All forecasts should be submitted directly to the [model-output/](./) folder. Data in this directory should be added to the repository through a pull request so that automatic data validation checks are run.
+All forecasts should be submitted directly to the [model-output](./) folder. Data in this directory should be added to the repository through a pull request so that automatic [data validation checks](../.github/workflows) are run.
 
 These instructions provide detail about the [data format](#Data-formatting) as well as [validation](#Forecast-validation) that you can do prior to this pull request. In addition, we describe [metadata](https://github.com/Infectious-Disease-Modeling-Hubs/hubTemplate/blob/master/model-metadata/README.md) that each model should provide in the model-metadata folder.
 
@@ -26,9 +26,9 @@ Models are asked to make specific quantitative forecasts about data that will be
 
 ## Target Data 
 
-County-level forecasts for total WNV diseases cases in each remaining calendar month of 2024 through October should be produced and submitted by their respective monthly due dates, beginning on April 30, 2024. Please note that these monthly county-level forecasts differ from previous national WNV forecasting challenge targets. This page includes information on how to submit forecasts. These instructions have been adapted from the prior challenges and the most up-to-date [hubverse structure](https://hubdocs.readthedocs.io/en/latest/). 
+County-level forecasts for total WNV diseases cases in each remaining calendar month of 2024 through December should be produced and submitted by their respective monthly due dates, beginning on April 30, 2024. Please note that these monthly county-level forecasts differ from previous national WNV forecasting challenge targets. This page includes information on how to submit forecasts. These instructions have been adapted from the prior challenges and the most up-to-date [hubverse structure](https://hubdocs.readthedocs.io/en/latest/). 
 
-All forecasts should be submitted directly to the model-output folder in this repository (more information on the submission folders is available here). Forecast data should be added to the repository through a pull request so that automatic data validation checks are run. 
+All forecasts should be submitted directly to the model-output folder in this repository (more information on the submission folders is available here). Forecast data should be added to the repository through a pull request so that automatic [data validation checks](../.github/workflows/model-output-pull.yml) are run. 
 
 These instructions provide detail about the data format as well as validation that you can do prior to this pull request. In addition, we describe the [metadata](#Metadata) that each model should provide. 
 
