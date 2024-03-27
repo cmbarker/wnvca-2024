@@ -22,3 +22,5 @@ We are grateful to the teams who have generated forecasts and made their forecas
 ## Acknowledgments
 
 This repository follows the guidelines and standards outlined by the [hubverse](https://hubdocs.readthedocs.io/en/latest/), which provides a set of data formats and open source tools for modeling hubs.
+
+<img src="./media/WNVCA2024.png" alt="WNVCA Logo" width="100px">

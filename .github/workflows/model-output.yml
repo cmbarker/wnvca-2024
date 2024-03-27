@@ -1,12 +1,12 @@
-name: model-output
+name: model-output-all
 run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 on:
   push:
     branches: ['main']
     paths: ['model-output/**']
-  pull_request:
-    branches: ['main']
-    paths: ['model-output/**']
+  # pull_request:
+  #  branches: ['main']
+  #  paths: ['model-output/**']
   workflow_dispatch:
 jobs:
   validate-submission:

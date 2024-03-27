@@ -10,6 +10,7 @@ on:
   workflow_dispatch:
 jobs:
   validate-submission:
+    permissions: write-all
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
