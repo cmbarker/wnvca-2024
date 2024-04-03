@@ -6,7 +6,7 @@ on:
     paths: ['model-output/**']
   pull_request:
     branches: ['main']
-    paths: ['model-output/**']
+    paths: ['model-output/**', '!**README**']
   workflow_dispatch:
 jobs:
   validate-submission:
