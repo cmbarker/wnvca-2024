@@ -120,7 +120,7 @@ San Bernardino, San Joaquin, Solano, Stanislaus, Tulare
 
 ### `origin_date` 
 
-Values in the `reference_date` column must be a date in the ISO format
+Values in the `origin_date` column must be a date in the ISO format
 
     YYYY-MM-DD
 
