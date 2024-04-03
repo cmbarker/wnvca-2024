@@ -85,7 +85,7 @@ where
 -   `team` is the team name, and
 -   `model` is the name of your model.
 
-The date YYYY-MM-DD is the [`reference_date`](#reference_date). This should be the Saturday following the submission date.
+The date YYYY-MM-DD is the [`reference_date`](#reference_date). This should be one of the following: "2024-04-30", "2024-05-31", "2024-06-30", "2024-07-31", "2024-08-31", "2024-09-30", "2024-10-31", "2024-11-30".
 
 The `team` and `model` in this file must match the `team` and `model` in
 the directory this file is in. Both `team` and `model` should be less
