@@ -1,9 +1,9 @@
 name: model-output-pull
 run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 on:
-  push:
-    branches: ['main']
-    paths: ['model-output/**']
+  # push:
+  #  branches: ['main']
+  #  paths: ['model-output/**']
   pull_request:
     branches: ['main']
     paths: ['model-output/**', '!**README**']
