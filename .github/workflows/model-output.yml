@@ -3,7 +3,7 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 on:
   push:
     branches: ['main']
-    paths: ['model-output/**']
+    paths: ['model-output/**', '!**README**']
   # pull_request:
   #  branches: ['main']
   #  paths: ['model-output/**']
