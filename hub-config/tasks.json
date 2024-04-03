@@ -61,7 +61,7 @@
     }],
     "submissions_due": {
         "relative_to": "origin_date",
-        "start": -15,
+        "start": -30,
         "end": 8
     }
   }
