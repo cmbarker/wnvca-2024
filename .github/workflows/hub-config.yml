@@ -3,10 +3,10 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 on:
   push:
     branches: ['main']
-    paths: ['hub-config/**']
+    paths: ['hub-config/**', '!**README**']
   pull_request:
     branches: ['main']
-    paths: ['hub-config/**']
+    paths: ['hub-config/**', '!**README**']
   workflow_dispatch:
 jobs:
   validate-hub-config:
