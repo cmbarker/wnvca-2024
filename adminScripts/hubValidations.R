@@ -1,0 +1,62 @@
+libs = c(
+  'hubUtils', 'hubEnsembles', 'hubValidations',
+  'hubAdmin', 'hubData'
+)
+invisible(lapply(libs, require, character.only=TRUE))
+
+HUB_PATH = '.'
+###############################################################################
+# Validate config file 
+###############################################################################
+validate_config(
+  hub_path=HUB_PATH,
+  config=c("admin"),
+  config_path=NULL,
+  schema_version="from_config",
+  branch="main"
+)
+###############################################################################
+# Validate tasks
+###############################################################################
+validate_config(
+  hub_path=HUB_PATH,
+  config=c("tasks"),
+  config_path=NULL,
+  schema_version="from_config",
+  branch="main"
+)
+###############################################################################
+# Validate Model YML files
+###############################################################################
+# Validate all YML files ------------------------------------------------------
+details = file.info(list.files(path="./model-metadata", pattern="*.yml"))
+details = details[with(details, order(as.POSIXct(mtime))), ]
+cFiles = rownames(details)
+sapply(cFiles, hubValidations::validate_model_metadata, hub_path='.')
+# Examine individual file -----------------------------------------------------
+file_path = 'UCD-GLM.yml'
+hubValidations::validate_model_metadata(
+  file_path=file_path,
+  hub_path=HUB_PATH
+)
+###############################################################################
+# Validate Submissions
+###############################################################################
+# Validate full CSV set -------------------------------------------------------
+details = file.info(list.files(
+  path="./model-output", pattern="*-*-*.csv", recursive=TRUE
+))
+details = details[with(details, order(as.POSIXct(mtime))), ]
+cFiles = rownames(details)
+# print(cFiles)
+sapply(cFiles, hubValidations::validate_submission, hub_path='.')
+# Examine individual files ----------------------------------------------------
+file_path = "UCD-GLM/2024-04-30-UCD-GLM.csv"
+hubValidations::validate_submission(
+  file_path=file_path,
+  hub_path=HUB_PATH
+)
+# read_model_out_file(file_path)
+
+
+
