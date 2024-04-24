@@ -3,10 +3,10 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 on:
   push:
     branches: ['main']
-    paths: ['model-metadata/**']
+    paths: ['model-metadata/**', '!**README**']
   pull_request:
     branches: ['main']
-    paths: ['model-metadata/**']
+    paths: ['model-metadata/**', '!**README**']
   workflow_dispatch:
 jobs:
   validate-models-metadata:
