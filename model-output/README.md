@@ -151,6 +151,7 @@ Upper, inclusive, bound on the standardized bin interval as defined in:
 * `15`: (10, 15]
 * `200`: (15, infinity]
 
+Where the intervals are defined in cases per million inhabitants.
 
 ### `type`
 
