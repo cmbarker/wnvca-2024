@@ -155,7 +155,7 @@ Where the intervals are defined in **cases per million inhabitants**.
 
 ### `type`
 
-As we will only be predicting the binned probabilities of cases as defined in [`output_type_id`](#output_type_id), we are requesting these are submitted as CDF to adhere to [hubverse's latest standards](https://hubdocs.readthedocs.io/en/latest/user-guide/model-output.html#formats-of-model-output). As such, this column should be a constant `cdf`.
+As we will only be predicting the binned probabilities of cases as defined in [`output_type_id`](#output_type_id), we are requesting these are submitted as cumulative distribution to adhere to [hubverse's latest standards](https://hubdocs.readthedocs.io/en/latest/user-guide/model-output.html#formats-of-model-output). As such, this column should be a constant `cdf` (in lowercase).
 
 
 ### `value`
