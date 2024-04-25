@@ -151,10 +151,11 @@ Upper, inclusive, bound on the standardized bin interval as defined in:
 * `15`: (10, 15]
 * `200`: (15, infinity]
 
+Where the intervals are defined in **cases per million inhabitants**.
 
 ### `type`
 
-As we will only be predicting the binned probabilities of cases as defined in [`output_type_id`](#output_type_id), we are requesting these are submitted as CDF to adhere to [hubverse's latest standards](https://hubdocs.readthedocs.io/en/latest/user-guide/model-output.html#formats-of-model-output). As such, this column should be a constant `cdf`.
+As we will only be predicting the binned probabilities of cases as defined in [`output_type_id`](#output_type_id), we are requesting these are submitted as cumulative distribution to adhere to [hubverse's latest standards](https://hubdocs.readthedocs.io/en/latest/user-guide/model-output.html#formats-of-model-output). As such, this column should be a constant `cdf` (in lowercase).
 
 
 ### `value`
@@ -163,7 +164,7 @@ Bins probabilities are requested in CDF form for each of the intervals as define
 
 ### `unit`
 
-String constant with value `WNV cases`, as it is the standard unit for this challenge.
+String constant with value `WNV cases` (which is assumed as *per million*).
 
 
 ### Example tables
