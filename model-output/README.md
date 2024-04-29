@@ -164,7 +164,7 @@ Bins probabilities are requested in CDF form for each of the intervals as define
 
 ### `unit`
 
-String constant with value `WNV cases` (which is assumed as *per million*).
+String constant with value `WNV cases` (which is assumed as **per million**).
 
 
 ### Example tables
